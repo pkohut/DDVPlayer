@@ -38,13 +38,13 @@
     <ClCompile Include="..\..\DocData.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\layTblReactor.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="..\..\StdAfx.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\layTblReactorCommands.cpp">
+    <ClCompile Include="..\..\ddVplayer.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\ddVplayerCommands.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -52,7 +52,7 @@
     <Text Include="..\..\ReadMe.txt" />
   </ItemGroup>
   <ItemGroup>
-    <ResourceCompile Include="..\..\layTblReactor.rc">
+    <ResourceCompile Include="..\..\ddvplayer.rc">
       <Filter>Resource Files</Filter>
     </ResourceCompile>
   </ItemGroup>

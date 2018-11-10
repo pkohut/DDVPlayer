@@ -93,9 +93,9 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\acrxEntryPoint.cpp" />
+    <ClCompile Include="..\..\ddVplayer.cpp" />
+    <ClCompile Include="..\..\ddVplayerCommands.cpp" />
     <ClCompile Include="..\..\DocData.cpp" />
-    <ClCompile Include="..\..\layTblReactor.cpp" />
-    <ClCompile Include="..\..\layTblReactorCommands.cpp" />
     <ClCompile Include="..\..\StdAfx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
@@ -107,7 +107,7 @@
     <Text Include="..\..\ReadMe.txt" />
   </ItemGroup>
   <ItemGroup>
-    <ResourceCompile Include="..\..\layTblReactor.rc" />
+    <ResourceCompile Include="..\..\ddvplayer.rc" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
