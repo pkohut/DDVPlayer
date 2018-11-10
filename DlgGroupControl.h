@@ -8,20 +8,22 @@ class CDlgGroupControl : public CDialogEx
 {
 	DECLARE_DYNAMIC(CDlgGroupControl)
 
-public:
-	CDlgGroupControl(CWnd* pParent = NULL);   // standard constructor
-	virtual ~CDlgGroupControl();
+protected:
+	virtual BOOL OnInitDialog();
+	virtual void DoDataExchange(CDataExchange* pDX);    // DDX/DDV support
 
-// Dialog Data
+	DECLARE_MESSAGE_MAP()
+
+public:
+	enum ActionType { eNone = 0, eProcessOneStep, eProcessVPLayerState, eEntitySelect };
+	// Dialog Data
 #ifdef AFX_DESIGN_TIME
 	enum { IDD = IDD_DIALOG_DDVPLAYER };
 #endif
 
-protected:
-	virtual void DoDataExchange(CDataExchange* pDX);    // DDX/DDV support
+	CDlgGroupControl(CWnd* pParent = NULL);   // standard constructor
+	virtual ~CDlgGroupControl();
 
-	DECLARE_MESSAGE_MAP()
-public:
 	CListBox m_lstLayerNames;
 	CListBox m_lstGroupNames;
 	CButton m_btnLayersPick;
@@ -42,4 +44,16 @@ public:
 	CButton m_chkLayersVPFrozen;
 	CButton m_chkLayersFrozen;
 	CButton m_chkLayersNVPFrozen;
+
+	afx_msg void OnBnClickedButtonGcLayersOnestep();
+	afx_msg void OnBnClickedButtonGcLayersPickEntities();
+	afx_msg void OnBnClickedButtonGcLayersApplyViewport();
+
+	UINT32 GetAction(void);
+
+private:
+	ActionType m_nAction;
 };
+
+
+void DDVPlayer(void);

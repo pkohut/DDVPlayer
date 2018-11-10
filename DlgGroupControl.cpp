@@ -11,14 +11,52 @@
 
 IMPLEMENT_DYNAMIC(CDlgGroupControl, CDialogEx)
 
+void DDVPlayer(void)
+{
+	CAcModuleResourceOverride * myResources = new CAcModuleResourceOverride;
+
+	Acad::ErrorStatus es;
+	bool bDocActivation = acDocManager->isDocumentActivationEnabled();
+	es = acDocManager->disableDocumentActivation();
+
+	CDlgGroupControl dlg;
+	bool bCont = true;
+	while (bCont)
+	{
+		if (dlg.DoModal() != IDOK)
+			bCont = false;
+
+		switch (dlg.GetAction())
+		{
+		case (CDlgGroupControl::eProcessOneStep):
+			break;
+		case (CDlgGroupControl::eProcessVPLayerState):
+			break;
+		case (CDlgGroupControl::eEntitySelect):
+			break;
+		default:
+			bCont = false;
+		}
+	}
+	if (bDocActivation)
+		es = acDocManager->enableDocumentActivation();
+}
+
 CDlgGroupControl::CDlgGroupControl(CWnd* pParent /*=NULL*/)
-	: CDialogEx(IDD_DIALOG_DDVPLAYER, pParent)
+	: CDialogEx(IDD_DIALOG_DDVPLAYER, pParent), m_nAction(eNone)
 {
 
 }
 
 CDlgGroupControl::~CDlgGroupControl()
 {
+}
+
+BOOL CDlgGroupControl::OnInitDialog()
+{
+	CDialogEx::OnInitDialog();
+	m_nAction = eNone;
+	return TRUE;
 }
 
 void CDlgGroupControl::DoDataExchange(CDataExchange* pDX)
@@ -48,7 +86,37 @@ void CDlgGroupControl::DoDataExchange(CDataExchange* pDX)
 
 
 BEGIN_MESSAGE_MAP(CDlgGroupControl, CDialogEx)
+	ON_BN_CLICKED(IDC_BUTTON_GC_LAYERS_ONESTEP, &CDlgGroupControl::OnBnClickedButtonGcLayersOnestep)
+	ON_BN_CLICKED(IDC_BUTTON_GC_LAYERS_PICK_ENTITIES, &CDlgGroupControl::OnBnClickedButtonGcLayersPickEntities)
+	ON_BN_CLICKED(IDC_BUTTON_GC_LAYERS_APPLY_VIEWPORT, &CDlgGroupControl::OnBnClickedButtonGcLayersApplyViewport)
 END_MESSAGE_MAP()
 
 
 // CDlgVplayer message handlers
+
+
+UINT32 CDlgGroupControl::GetAction()
+{
+	return m_nAction;
+}
+
+
+void CDlgGroupControl::OnBnClickedButtonGcLayersOnestep()
+{
+	m_nAction = eProcessOneStep;
+	CDialog::OnOK();
+}
+
+
+void CDlgGroupControl::OnBnClickedButtonGcLayersPickEntities()
+{
+	m_nAction = eEntitySelect;
+	CDialog::OnOK();
+}
+
+
+void CDlgGroupControl::OnBnClickedButtonGcLayersApplyViewport()
+{
+	m_nAction = eProcessVPLayerState;
+	CDialog::OnOK();
+}

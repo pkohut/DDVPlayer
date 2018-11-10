@@ -164,11 +164,9 @@ public:
 	}
 
 	static void rpkGroupDDVPlayer() {
-		CAcModuleResourceOverride * myResources = new CAcModuleResourceOverride;
-		CDlgGroupControl dlg;
-		dlg.DoModal();
+		DDVPlayer();
 	}
-	
+
 } ;
 
 //-----------------------------------------------------------------------------
