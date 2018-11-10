@@ -25,6 +25,7 @@
 #include "StdAfx.h"
 #include "StdArx.h"
 #include "resource.h"
+#include "DlgGroupControl.h"
 
 //-----------------------------------------------------------------------------
 #define szRDS _RXST("rpk")
@@ -164,7 +165,8 @@ public:
 
 	static void rpkGroupDDVPlayer() {
 		CAcModuleResourceOverride * myResources = new CAcModuleResourceOverride;
-		// Add command code here
+		CDlgGroupControl dlg;
+		dlg.DoModal();
 	}
 	
 } ;
