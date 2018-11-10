@@ -3,17 +3,9 @@
 // Used by ddvplayer.rc
 //
 #define IDS_PROJNAME                    100
-#define IDC_CHECK_LAYERS_OFF            100
-#define IDC_CHECK_LAYERS_FROZEN         101
-#define IDD_DIALOG_SETTINGS             102
-#define IDC_CHECK_LAYERS_LOCKED         102
-#define IDC_CHECK_LAYERS_FROZEN_VP      103
-#define IDC_CHECK_LAYERS_FROZEN_NEW_VP  104
 #define IDD_DIALOG_DDVPLAYER            104
 #define IDC_BUTTON_UNREGISTER           105
-#define IDC_BUTTON_REGISTER             105
 #define IDC_BUTTON1                     106
-#define IDC_BUTTON_ENABLED              106
 #define IDC_BUTTON_GC_LAYERS_PICK_ENTITIES 106
 #define IDC_LIST_GC_LAYERS              107
 #define IDC_BUTTON_GC_LAYERS_SELECTALL  108
@@ -34,7 +26,6 @@
 #define IDC_STATIC_GC_GROUPS_FRAME      123
 #define IDC_BUTTON_GC_LAYERS_UPDATE     124
 #define IDC_BUTTON_GC_LAYERS_LOAD       125
-#define IDC_BUTTON9                     126
 #define IDC_BUTTON_GC_LAYERS_SAVE       126
 #define IDC_BUTTON_GC_LAYERS_NONE       127
 
